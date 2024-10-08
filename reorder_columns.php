@@ -170,6 +170,8 @@ function generateAlterTable($table_name, $columns, $custom) {
 
         if ($column == 'created' && $custom)
         {
+            
+
             $alter .= "MODIFY COLUMN `created` timestamp NOT NULL DEFAULT current_timestamp() " . $position_string;
         } elseif ($column == 'updated' && $custom)
         {
@@ -209,7 +211,7 @@ function cmp($a, $b) {
 
 // Function to display the help message
 function displayHelp() {
-    echo "\nUsage: php sort_tables.php --db=<database> [options]\n";
+    echo "\nUsage: php reorder_columns.php --db=<database> [options]\n";
     echo "\n";
     echo "Parameters:\n";
     echo "  --db, -d         (required) Name of the database.\n";
@@ -225,5 +227,5 @@ function displayHelp() {
     echo "  (MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST) or use default values.\n";
     echo "\n";
     echo "Example usage:\n";
-    echo "  php sort_tables.php --db=my_database --user=my_user --password=my_password --host=localhost\n";
+    echo "  php reorder_columns.php --db=my_database --user=my_user --password=my_password --host=localhost\n";
 }
